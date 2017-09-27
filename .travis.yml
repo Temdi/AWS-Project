@@ -21,7 +21,9 @@ deploy:
   application: AWS-Project
   deployment_group: CR-AWS-Project
   on: *2
-  
+
 before_deploy:
 - mkdir -p dpl_cd_upload
 - mv '' dpl_cd_upload/''
+
+install: composer install
