@@ -1,13 +1,17 @@
-  language: php
+deploy:
 
-  deploy:
-      - provider: s3
-        ⋮ # rest of S3 deployment for MyApp.zip
-      - provider: codedeploy
-        access_key_id: "YOUR AWS ACCESS KEY"
-        secret_access_key: "YOUR AWS SECRET KEY"
-        bucket: "S3 Bucket"
-        key: latest/MyApp.zip
-        application: MyApp
-        deployment_group: MyDeploymentGroup
-        region: eu-west-2
+- provider: codedeploy
+  access_key_id: AKIAJBPUKOCPF56NILPQ
+  secret_access_key: &1
+      secure: SqOSti5ButWXClLSTswnZz5dxtyoLEcD8HhC9Cr76M3LriNkrpxWNaiD54IQbPKpm4MFdLh7uTuJq8GyLhKyeBtxT5oMV9PMBY8FrfeiZbNuwKpq9ePDgOA/szvjuXcW+LjxNZLh71rVJS/TdDrlk0IJs5c92LUFcDmiflgVKtc40a3YdXF93U4bcfyudqIJ3KorSzxhmh3YpI8MsBM/lCtBYha+YyHuJG1G+D7tG2GQqgXhBFBccvQQDrwVZ3osKFfSg/Scr+DA2fqvxVeZRWGOLujwYH0hOaR0K3aK/MilSLwHKTZoEDes7FEHMKEZGnf+6MI9P9mX3VmRaLBS4OQflQCHFnsReOcDJLpVVFOeUItw0V1EI1IIqLI0lkryBeRk6YQ+edp8hG0utDF3Dz1+yRsqXhZlHDOAI3Kg4rMQWs6By5CMnt9fXhV0zxQkOtqKgS9RaVNvIy+oo8/Wosa1JMA9foEDYjZwfYJ1BD02KwIx4bjsr45G1XYpyOf5X6T3DSrcLSKfSz7Hp1dLWnxXU7wwS/1rEEUc1ZDmMPmVUpz2eqh4/t21LRfvnkOA2kAw5FBiUh7lOP59r1vPRE0xhCXYTunE90BFEuvZD6U/5Y5mQyAUnNgFrqWI3eBk5ccP+Pm4aBoSZ5PrupKFgXhDTpAb4HXR4rrPUcjPqYI=
+  bucket: ''
+  key: ''
+  bundle_type: ''
+  application: AWS-Project
+  deployment_group: ''
+  on: &2
+      repo: Temdi/AWS-Project
+
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv '' dpl_cd_upload/''
