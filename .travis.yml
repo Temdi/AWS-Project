@@ -1,17 +1,27 @@
-deploy:
+language: php
+php:
+  - '7.0'
 
-- provider: codedeploy
+deploy:
+- provider: s3
   access_key_id: AKIAJBPUKOCPF56NILPQ
   secret_access_key: &1
-      secure: SqOSti5ButWXClLSTswnZz5dxtyoLEcD8HhC9Cr76M3LriNkrpxWNaiD54IQbPKpm4MFdLh7uTuJq8GyLhKyeBtxT5oMV9PMBY8FrfeiZbNuwKpq9ePDgOA/szvjuXcW+LjxNZLh71rVJS/TdDrlk0IJs5c92LUFcDmiflgVKtc40a3YdXF93U4bcfyudqIJ3KorSzxhmh3YpI8MsBM/lCtBYha+YyHuJG1G+D7tG2GQqgXhBFBccvQQDrwVZ3osKFfSg/Scr+DA2fqvxVeZRWGOLujwYH0hOaR0K3aK/MilSLwHKTZoEDes7FEHMKEZGnf+6MI9P9mX3VmRaLBS4OQflQCHFnsReOcDJLpVVFOeUItw0V1EI1IIqLI0lkryBeRk6YQ+edp8hG0utDF3Dz1+yRsqXhZlHDOAI3Kg4rMQWs6By5CMnt9fXhV0zxQkOtqKgS9RaVNvIy+oo8/Wosa1JMA9foEDYjZwfYJ1BD02KwIx4bjsr45G1XYpyOf5X6T3DSrcLSKfSz7Hp1dLWnxXU7wwS/1rEEUc1ZDmMPmVUpz2eqh4/t21LRfvnkOA2kAw5FBiUh7lOP59r1vPRE0xhCXYTunE90BFEuvZD6U/5Y5mQyAUnNgFrqWI3eBk5ccP+Pm4aBoSZ5PrupKFgXhDTpAb4HXR4rrPUcjPqYI=
+    secure: duKOvsEvDHmbOrggDjlDGJ/yxq25ACsA59LKFWqXhymhWKXuPAvLn6llSBzpNw8Ip5enbgM6gzMazxPyvjSVeN/LByFub/+lIyJQB+FvvsAezIbG9Px1BUIH8oiRbFiz6ENVXVOIue76ccFXdFc800GA2QHTEaZU/NS9l4GV+dXgnwzbwcHw3+7dGHWyCtNDxnXYFA0VrlX8ILt0H01u36nlvs1SmuSM+/8uC7wJPY5qonFNixrVcFVNn7BMtN+as/G1gac1GxOXujAN+FalqlE7HxSqV+oeaBvnbHVI/NlyhMuTUn40cMGbhpczqX0jVFETHouOv3ymwxmeFqekJzMmIgcNecjiFPiqd9FXXKQwnDHziI6/05yAbhDPMR19/ShVogF8ReNwltJ3XCK9DO5f+R8af/m3tkj9tmDNmrlhHCTxbcUbpxgF1dhPmCv59jsPJ1JwP836hw3M0E10EuH4NOpjSw77z5z7vigQYgCRvhhS2e8MOk9ZhAeBpzjtXxtCClKW+GrwfG9TgtzuRSDkie5KiYMbrVtmdpHtdxQGA0uzUK8HyEEa5HBtsQBlg6B5qKbB6NG7bmpXlLJ1ZoJAIaumx3eAyckFRP7hWIZYLUWe8qojBhFvPRYfViM9VBv3kMEHKWh2T7EsXOAsG3KtTSdmoaQTJJbE3+/px7c=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: Temdi/AWS-Project
+  bucket: ''
+- provider: codedeploy
+  access_key_id: AKIAJBPUKOCPF56NILPQ
+  secret_access_key: *1
   bucket: ''
   key: ''
   bundle_type: ''
   application: AWS-Project
-  deployment_group: ''
-  on: &2
-      repo: Temdi/AWS-Project
-
+  deployment_group: CR-AWS-Project
+  on: *2
+  
 before_deploy:
 - mkdir -p dpl_cd_upload
 - mv '' dpl_cd_upload/''
