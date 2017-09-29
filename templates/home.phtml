@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Slim 3</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    </head>
+    <body style="background: #f6f6f6; font-family: 'Lato', sans-serif">
+
+        <div style="width: 50%;margin: 0 auto;" >
+
+        <?php foreach ($json['news'] as $k => $v) { ?>
+            <div style="background: white; border-radius: 20px;margin: 50px 0;padding: 20px; box-shadow: rgba(0, 0, 0, 0.16) 0 0 20px 0px;
+">
+            <h2 style="margin: 0"><?php echo $v['title']; ?></h2>
+            <div style=""><?php echo $v['date']; ?></div>
+            <a href="<?php echo $v['url']; ?>"><img style="width: 100%" src="<?php echo $v['picture_url']; ?>"></a>
+            </div>
+
+        <?php } ?>
+
+    </body>
+</html>
