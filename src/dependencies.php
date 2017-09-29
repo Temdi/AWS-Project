@@ -17,3 +17,9 @@ $container['logger'] = function ($c) {
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
 };
+
+//Guzzle HTTP client
+$container['httpClient'] = function() {
+    $guzzle = new \GuzzleHttp\Client();
+    return $guzzle;
+};
